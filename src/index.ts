@@ -1,10 +1,14 @@
 import express from "express";
 import mongoose from "mongoose";
+import { router } from "./router";
 
 mongoose.connect("mongodb://localhost:27017")
 	.then(() => {
 		const app = express();
-		app.listen(9000, () => {
+		const port = 9000;
+
+		app.use(router);
+		app.listen(port, () => {
 			console.log("🚀 Server is running on http://localhost:9000");
 		});
 	})
