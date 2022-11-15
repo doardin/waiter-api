@@ -1,12 +1,11 @@
 import { Router } from "express";
+import { listCategories } from "./app/useCases/categories/listCategories";
 
 export const router = Router();
 
 const baseUrl = "/waiter/v1";
 
-router.get(baseUrl + "/categories", (req, res) => {
-	res.send("OK");
-});
+router.get(baseUrl + "/categories", listCategories);
 
 router.get(baseUrl + "/categories/:categoryId/products", (req, res) => {
 	res.send("OK");
