@@ -11,7 +11,7 @@ export const Order = model("Order", new Schema({
 		default: "WAITING"
 	},
 	createdAt: {
-		type: DataTransfer,
+		type: Date,
 		default: Date.now,
 	},
 	products: {
