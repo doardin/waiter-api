@@ -3,6 +3,7 @@ import multer from "multer";
 import path from "node:path";
 import { createCategory } from "./app/useCases/categories/createCategory";
 import { listCategories } from "./app/useCases/categories/listCategories";
+import { listProductsByCategory } from "./app/useCases/categories/listProductsByCategory";
 import { createProduct } from "./app/useCases/products/createProduct";
 import { listProducts } from "./app/useCases/products/listProducts";
 
@@ -24,9 +25,7 @@ const baseUrl = "/waiter/v1";
 
 router.get(baseUrl + "/categories", listCategories);
 
-router.get(baseUrl + "/categories/:categoryId/products", (req, res) => {
-	res.send("OK");
-});
+router.get(baseUrl + "/categories/:categoryId/products", listProductsByCategory);
 
 router.post(baseUrl + "/categories", createCategory);
 
