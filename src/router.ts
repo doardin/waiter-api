@@ -4,6 +4,7 @@ import path from "node:path";
 import { createCategory } from "./app/useCases/categories/createCategory";
 import { listCategories } from "./app/useCases/categories/listCategories";
 import { listProductsByCategory } from "./app/useCases/categories/listProductsByCategory";
+import { listOrders } from "./app/useCases/orders/listOrders";
 import { createProduct } from "./app/useCases/products/createProduct";
 import { listProducts } from "./app/useCases/products/listProducts";
 
@@ -37,9 +38,7 @@ router.post(baseUrl + "/products", upload.single("image"), createProduct);
 
 
 
-router.get(baseUrl + "/orders", (req, res) => {
-	res.send("OK");
-});
+router.get(baseUrl + "/orders", listOrders);
 
 router.post(baseUrl + "/orders", (req, res) => {
 	res.send("OK");
