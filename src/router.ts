@@ -4,6 +4,7 @@ import path from "node:path";
 import { createCategory } from "./app/useCases/categories/createCategory";
 import { listCategories } from "./app/useCases/categories/listCategories";
 import { listProductsByCategory } from "./app/useCases/categories/listProductsByCategory";
+import { changeOrderStatus } from "./app/useCases/orders/changeOrderStatus";
 import { createOrder } from "./app/useCases/orders/createOrder";
 import { listOrders } from "./app/useCases/orders/listOrders";
 import { createProduct } from "./app/useCases/products/createProduct";
@@ -43,9 +44,7 @@ router.get(baseUrl + "/orders", listOrders);
 
 router.post(baseUrl + "/orders", createOrder);
 
-router.patch(baseUrl + "/orders/:orderId", (req, res) => {
-	res.send("OK");
-});
+router.patch(baseUrl + "/orders/:orderId", changeOrderStatus);
 
 router.delete(baseUrl + "/orders/:orderId", (req, res) => {
 	res.send("OK");
