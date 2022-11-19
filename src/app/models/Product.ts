@@ -18,7 +18,7 @@ export const Product= model("Product", new Schema({
 		required: true
 	},
 	ingredients: {
-		type: {
+		type: [{
 			name: {
 				type: String,
 				required: true
@@ -27,7 +27,7 @@ export const Product= model("Product", new Schema({
 				type: String,
 				required: true
 			},
-		},
+		}],
 		required: true
 	},
 	category: {
